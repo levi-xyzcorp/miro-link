@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MIRO 콘솔 연결 중…</title>
+<body style="font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:90vh;background:#111;color:#eee">
+<div id="msg">MIRO 콘솔로 연결 중…</div>
+<script>
+// 고정 QR → 현재 터널로 중계. 토큰은 QR 쿼리(?t=)로만 전달 — 저장소엔 미보관.
+var target = "https://brass-shark-wife-micro.trycloudflare.com"; // AUTO-UPDATED by miro_tunnel
+var m = /(?:^|[?&])t=([^&]+)/.exec(location.search);
+location.replace(target + "/" + (m ? "?token=" + m[1] : ""));
+setTimeout(function () {
+  document.getElementById("msg").innerHTML =
+    "연결이 안 되면 터널이 꺼져 있는 상태입니다 — 관리자에게 문의하세요.";
+}, 4000);
+</script>
+</body>
+</html>
